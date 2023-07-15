@@ -175,22 +175,22 @@ stages:
               package: $(Pipeline.Workspace)/drop-fakerestapi/$(Build.BuildId)-fakerestapi.zip
           #--------------------------------------------#    
           # Run JMeter test suite against the App Service
-          - task: CmdLine@2
-            displayName: 'Run Endurance Test'  
-            inputs:
-              script: |
-                wget "https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.tgz"
-                tar -xf apache-jmeter-5.6.tgz
-                unzip -o $(Build.BuildId)-perftests.zip
-                rm -rf endurance-test-result/*
-                ./apache-jmeter-5.6/bin/jmeter -n -t Endurance_Test_Suite.jmx -l endurance-test-result/EnduranceTest_Result.jtl -e -o endurance-test-result
-              workingDirectory: $(Pipeline.Workspace)/drop-perftests
+          # - task: CmdLine@2
+          #   displayName: 'Run Endurance Test'  
+          #   inputs:
+          #     script: |
+          #       wget "https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.tgz"
+          #       tar -xf apache-jmeter-5.6.tgz
+          #       unzip -o $(Build.BuildId)-perftests.zip
+          #       rm -rf endurance-test-result/*
+          #       ./apache-jmeter-5.6/bin/jmeter -n -t Endurance_Test_Suite.jmx -l endurance-test-result/EnduranceTest_Result.jtl -e -o endurance-test-result
+          #     workingDirectory: $(Pipeline.Workspace)/drop-perftests
           # Publish Endurance Test Suite
-          - task: publishhtmlreport@1
-            displayName: 'Publish Endurance Test Results'
-            inputs:
-              htmlType: 'Jmeter'
-              JmeterReportsPath: '$(Pipeline.Workspace)/drop-perftests/endurance-test-result'   
+          # - task: publishhtmlreport@1
+          #   displayName: 'Publish Endurance Test Results'
+          #   inputs:
+          #     htmlType: 'Jmeter'
+          #     JmeterReportsPath: '$(Pipeline.Workspace)/drop-perftests/endurance-test-result'   
               
           - task: CmdLine@2
             displayName: 'Run Stress Test'
