@@ -169,7 +169,8 @@ stages:
             displayName: 'Deploy Azure Web App'
             inputs:
               azureSubscription: myServiceConnection
-              appName: 'myApplication-AppService-hald1994'
+              appName: 'azuredevops-app-appservice-hald1994
+'
               appType: webApp
               package: $(Pipeline.Workspace)/drop-fakerestapi/$(Build.BuildId)-fakerestapi.zip
           #--------------------------------------------#    
