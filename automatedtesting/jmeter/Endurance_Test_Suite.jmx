@@ -43,8 +43,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">azuredevops-app-appservice-hald1994
-.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.domain">azuredevops-app-appservice-hald1994.azurewebsites.net</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -75,8 +74,7 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">azuredevops-app-appservice-hald1994
-.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.domain">azuredevops-app-appservice-hald1994.azurewebsites.net</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -103,8 +101,7 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">azuredevops-app-appservice-hald1994
-.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.domain">azuredevops-app-appservice-hald1994.azurewebsites.net</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -131,8 +128,7 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">azuredevops-app-appservice-hald1994
-.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.domain">azuredevops-app-appservice-hald1994.azurewebsites.net</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -188,8 +184,7 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="host" elementType="Argument">
               <stringProp name="Argument.name">host</stringProp>
-              <stringProp name="Argument.value">azuredevops-app-appservice-hald1994
-.azurewebsites.net</stringProp>
+              <stringProp name="Argument.value">azuredevops-app-appservice-hald1994.azurewebsites.net</stringProp>
               <stringProp name="Argument.desc">app service host name</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
