@@ -7,15 +7,15 @@ provider "azurerm" {
 }
 terraform {
   backend "azurerm" {
-    storage_account_name = ""
-    container_name       = ""
-    key                  = ""
-    access_key           = ""
+    storage_account_name = "tfstate37681663"
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
+    access_key           = "XgxpjHuytKJtoRGZ8aX2lQPkvmvPY1R1Bs31+o76PriMg+Rm+k7oWhMXsvlk6eBPNim/XcPPWQ9f+AStzwk6ag=="
   }
 }
 module "resource_group" {
   source               = "../../modules/resource_group"
-  resource_group       = "${var.resource_group}"
+  resource_group       = "${var.resource_group_name}"
   location             = "${var.location}"
 }
 module "network" {
@@ -25,7 +25,7 @@ module "network" {
   virtual_network_name = "${var.virtual_network_name}"
   application_type     = "${var.application_type}"
   resource_type        = "NET"
-  resource_group       = "${module.resource_group.resource_group_name}"
+  resource_group       = "${var.resource_group_name}"
   address_prefix_test  = "${var.address_prefix_test}"
 }
 
@@ -34,7 +34,7 @@ module "nsg-test" {
   location         = "${var.location}"
   application_type = "${var.application_type}"
   resource_type    = "NSG"
-  resource_group   = "${module.resource_group.resource_group_name}"
+  resource_group   = "${var.resource_group_name}"
   subnet_id        = "${module.network.subnet_id_test}"
   address_prefix_test = "${var.address_prefix_test}"
 }
@@ -43,12 +43,12 @@ module "appservice" {
   location         = "${var.location}"
   application_type = "${var.application_type}"
   resource_type    = "AppService"
-  resource_group   = "${module.resource_group.resource_group_name}"
+  resource_group   = "${var.resource_group_name}"
 }
 module "publicip" {
   source           = "../../modules/publicip"
   location         = "${var.location}"
   application_type = "${var.application_type}"
   resource_type    = "publicip"
-  resource_group   = "${module.resource_group.resource_group_name}"
+  resource_group   = "${var.resource_group_name}"
 }
