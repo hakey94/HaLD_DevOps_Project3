@@ -1,0 +1,13 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1688973193285,1129,HTTP Request,200,OK,Stress Test Suite 2-1,text,true,,352,170,1,5,https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities?ID=1,1129,0,858
+1688973195785,1150,HTTP Request,200,OK,Stress Test Suite 2-2,text,true,,351,170,1,1,https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities?ID=2,1150,0,863
+1688975579765,1205,HTTP Request,200,OK,Stress Test Suite 2-1,text,true,,352,170,1,7,https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities?ID=1,1205,0,914
+1688975582265,1073,HTTP Request,200,OK,Stress Test Suite 2-2,text,true,,351,170,1,1,https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities?ID=2,1073,0,806
+1688975598085,1062,HTTP Request,200,OK,Stress Test Suite 2-1,text,true,,351,170,1,8,https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities?ID=1,1062,0,797
+1688975600583,1104,HTTP Request,200,OK,Stress Test Suite 2-2,text,true,,351,170,1,1,https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities?ID=2,1104,0,826
+1689066487483,1880,HTTP Request,200,OK,Stress Test Suite 2-1,text,true,,352,170,1,1,https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities?ID=1,1879,0,1553
+1689066489879,1026,HTTP Request,200,OK,Stress Test Suite 2-2,text,true,,351,170,1,1,https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities?ID=2,1026,0,769
+1689075242937,1244,HTTP Request,200,OK,Stress Test Suite 2-1,text,true,,352,170,1,1,https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities?ID=1,1244,0,998
+1689075245433,1028,HTTP Request,200,OK,Stress Test Suite 2-2,text,true,,351,170,1,1,https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities?ID=2,1028,0,766
+1689075986835,1546,HTTP Request,200,OK,Stress Test Suite 2-1,text,true,,352,170,1,1,https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities?ID=1,1546,0,1291
+1689075989250,1135,HTTP Request,200,OK,Stress Test Suite 2-2,text,true,,350,170,1,1,https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities?ID=2,1135,0,850
