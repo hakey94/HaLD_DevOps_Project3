@@ -228,11 +228,11 @@ stages:
                 
               workingDirectory: $(Pipeline.Workspace)/drop-perftests
           # Publish Endurance Test Suite
-          - task: publishhtmlreport@1
-            displayName: 'Publish Endurance Test Results'
-            inputs:
-              htmlType: 'Jmeter'
-              JmeterReportsPath: '$(Pipeline.Workspace)/drop-perftests/endurance-test-result'   
+          # - task: publishhtmlreport@1
+          #   displayName: 'Publish Endurance Test Results'
+          #   inputs:
+          #     htmlType: 'Jmeter'
+          #     JmeterReportsPath: '$(Pipeline.Workspace)/drop-perftests/endurance-test-result'   
               
           - task: CmdLine@2
             displayName: 'Run Stress Test'
@@ -245,11 +245,11 @@ stages:
                 ./apache-jmeter-5.6/bin/jmeter -n -t Stress_Test_Suite.jmx -l stress-test-result/StressTest_Result.jtl -e -o stress-test-result                                                           
               workingDirectory: $(Pipeline.Workspace)/drop-perftests
           # Publish Stress Test Suite
-          - task: publishhtmlreport@1
-            displayName: 'Publish Stress Test Results'
-            inputs:
-              htmlType: 'Jmeter'
-              JmeterReportsPath: '$(Pipeline.Workspace)/drop-perftests/stress-test-result'
+          # - task: publishhtmlreport@1
+          #   displayName: 'Publish Stress Test Results'
+          #   inputs:
+          #     htmlType: 'Jmeter'
+          #     JmeterReportsPath: '$(Pipeline.Workspace)/drop-perftests/stress-test-result'
 
           # Print Postman Test Logs
           - task: Bash@3
