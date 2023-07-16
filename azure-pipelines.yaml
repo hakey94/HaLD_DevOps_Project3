@@ -303,7 +303,8 @@ stages:
                 fi
                 export PATH=$PATH:/home/myagent/app
                 echo "Starting Selenium Tests"
-                python3 selenium-test.py >> selenium.log
+                sudo python3 selenium-test.py >> selenium.log
+                # python3 selenium-test.py >> selenium.log
                 echo "Completed Selenium Tests. Check selenium.log for results."
 
 - stage: Postman
