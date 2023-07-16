@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "ff8fec93-34a2-404d-8a30-7b9ee37b6b65",
+		"name": "TestSuite",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20297199"
+	},
+	"item": [
+		{
+			"name": "Get All Activity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () { \r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is application/json\", function () { \r",
+							"    pm.expect(postman.getResponseHeader(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body is present\", function () { \r",
+							"    pm.response.to.have.body();\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body is a valid json\", function () { \r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://azuredevops-app-appservice-hald1994
+.azurewebsites.net/api/Activities",
+					"protocol": "https",
+					"host": [
+						"azuredevops-app-appservice-hald1994
+",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"Activities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Activity by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Body is a valid json\", function () { \r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Completed: true\", function () {\r",
+							"    pm.expect(jsonData.Completed).to.eql(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be contains ID and valid data type\", function () {\r",
+							"    pm.expect(parseInt(jsonData.ID)).to.be.a('number');\r",
+							"    pm.expect(typeof jsonData.ID).to.eql(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be contains Title and valid data type\", function () {\r",
+							"    pm.expect(jsonData.Title).to.be.a('string');\r",
+							"    pm.expect(typeof jsonData.Title).to.eql(\"string\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://azuredevops-app-appservice-hald1994
+.azurewebsites.net/api/Activities?ID={{ID}}",
+					"protocol": "https",
+					"host": [
+						"azuredevops-app-appservice-hald1994
+",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"Activities"
+					],
+					"query": [
+						{
+							"key": "ID",
+							"value": "{{ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
