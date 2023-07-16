@@ -291,7 +291,7 @@ stages:
                 if [ ! -d "$DIR" ]; then
                     mkdir app
                 fi
-                mv /home/myagent/azagent/_work/1/drop-uitests/$(Build.BuildId)-uitests.zip app
+                mv /home/myagent/myagent/_work/1/drop-uitests/$(Build.BuildId)-uitests.zip app
                 cd app
                 unzip -o $(Build.BuildId)-uitests.zip
                 FILE=/home/myagent/app/chromedriver_linux64.zip
