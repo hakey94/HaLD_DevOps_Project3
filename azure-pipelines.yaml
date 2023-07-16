@@ -286,7 +286,8 @@ stages:
                 sudo apt-get install unzip -y
                 sudo apt-get install -y chromium-browser
                 pip3 install selenium
-                cd ~/
+                cd $(Pipeline.Workspace)/selenium-test
+                
                 DIR=/home/myagent/app
                 if [ ! -d "$DIR" ]; then
                     mkdir app
