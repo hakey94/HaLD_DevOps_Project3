@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "007e340c-22c9-4a2b-8113-e8bf9027c745",
+		"_postman_id": "d8583e9b-2c42-464d-885e-e31fbc60bc7e",
 		"name": "Data_Validation_Test_Suite",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -28,7 +28,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Ha\",\n    \"salary\": \"9999\",\n    \"age\": \"32\"\n}",
+					"raw": "{\n    \"name\": \"{{name}}\",\n    \"salary\": \"{{salary}}\",\n    \"age\": \"{{age}}\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -36,8 +36,8 @@
 					}
 				},
 				"url": {
-					"raw": "https://dummy.restapiexample.com/api/v1/create",
-					"protocol": "https",
+					"raw": "http://dummy.restapiexample.com/api/v1/create",
+					"protocol": "http",
 					"host": [
 						"dummy",
 						"restapiexample",
@@ -86,7 +86,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://dummy.restapiexample.com/api/v1/employee/1",
+					"raw": "http://dummy.restapiexample.com/api/v1/employee/1",
 					"protocol": "http",
 					"host": [
 						"dummy",
@@ -125,7 +125,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Key\",\r\n    \"salary\": \"66666\",\r\n    \"age\": \"32\"\r\n}",
+					"raw": "{\r\n    \"name\": \"{{updatename}}\",\r\n    \"salary\": \"{{updatesalary}}\",\r\n    \"age\": \"{{updateage}}\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -133,8 +133,8 @@
 					}
 				},
 				"url": {
-					"raw": "https://dummy.restapiexample.com/api/v1/update/849adb83-72bf-4188-b2e2-53bfd94d2804",
-					"protocol": "https",
+					"raw": "http://dummy.restapiexample.com/api/v1/update/{{id}}",
+					"protocol": "http",
 					"host": [
 						"dummy",
 						"restapiexample",
@@ -144,7 +144,7 @@
 						"api",
 						"v1",
 						"update",
-						"849adb83-72bf-4188-b2e2-53bfd94d2804"
+						"{{id}}"
 					]
 				}
 			},
@@ -169,8 +169,8 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://dummy.restapiexample.com/api/v1/delete/849adb83-72bf-4188-b2e2-53bfd94d2804",
-					"protocol": "https",
+					"raw": "http://dummy.restapiexample.com/api/v1/delete/{{id}}",
+					"protocol": "http",
 					"host": [
 						"dummy",
 						"restapiexample",
@@ -180,7 +180,7 @@
 						"api",
 						"v1",
 						"delete",
-						"849adb83-72bf-4188-b2e2-53bfd94d2804"
+						"{{id}}"
 					]
 				}
 			},

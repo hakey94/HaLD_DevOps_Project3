@@ -16,7 +16,7 @@
 							"    pm.expect(pm.response.text()).to.include(\"success\");",
 							"});",
 							"var json = pm.response.json();",
-							"pm.environment.set(\"id\", ce54e7a0-a4f2-4612-b484-6d4c23e58df8);"
+							"pm.environment.set(\"id\", json.data.id);"
 						],
 						"type": "text/javascript"
 					}
@@ -27,7 +27,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Ha\",\n    \"salary\": \"999\",\n    \"age\": \"30\"\n}",
+					"raw": "{\n    \"name\": \"{{name}}\",\n    \"salary\": \"{{salary}}\",\n    \"age\": \"{{age}}\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
