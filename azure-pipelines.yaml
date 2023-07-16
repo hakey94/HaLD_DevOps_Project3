@@ -287,25 +287,15 @@ stages:
                 sudo apt-get install -y chromium-browser
                 pip3 install selenium
                 cd $(Pipeline.Workspace)/selenium
+                unzip $(Build.BuildId)-uitests.zip -d $(Build.BuildId)-uitests
 
-                DIR=/home/myagent/app
-                if [ ! -d "$DIR" ]; then
-                    mkdir app
-                fi
-                mv /home/myagent/myagent/_work/1/drop-uitests/$(Build.BuildId)-uitests.zip app
-                cd app
-                unzip -o $(Build.BuildId)-uitests.zip
-                FILE=/home/myagent/app/chromedriver_linux64.zip
-                if [ ! -f "$FILE" ]; then
-                    LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-                    wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
-                    unzip -o chromedriver_linux64.zip
-                    sudo ln -s $PWD/chromedriver /usr/local/bin/chromedriver
-                fi
-                export PATH=$PATH:/home/myagent/app
+                cd $(Build.BuildId)-uitests
+                wget https://chromedriver.storage.googleapis.com/112.0.5615.49/chromedriver_linux64.zip 
+                unzip -o chromedriver_linux64.zip
+                sudo ln -s $PWD/chromedriver /usr/bin/chromedriver
+                export PATH=$PATH:/usr/bin/chromedriver
                 echo "Starting Selenium Tests"
                 sudo python3 selenium-test.py >> selenium.log
-                # python3 selenium-test.py >> selenium.log
                 echo "Completed Selenium Tests. Check selenium.log for results."
 
 - stage: Postman
