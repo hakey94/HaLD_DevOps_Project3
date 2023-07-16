@@ -55,12 +55,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://azuredevops-app-appservice-hald1994
-.azurewebsites.net/api/Activities",
+					"raw": "https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities",
 					"protocol": "https",
 					"host": [
-						"azuredevops-app-appservice-hald1994
-",
+						"azuredevops-app-appservice-hald1994",
 						"azurewebsites",
 						"net"
 					],
@@ -123,12 +121,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://azuredevops-app-appservice-hald1994
-.azurewebsites.net/api/Activities?ID={{ID}}",
+					"raw": "https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities?ID={{ID}}",
 					"protocol": "https",
 					"host": [
-						"azuredevops-app-appservice-hald1994
-",
+						"azuredevops-app-appservice-hald1994",
 						"azurewebsites",
 						"net"
 					],
