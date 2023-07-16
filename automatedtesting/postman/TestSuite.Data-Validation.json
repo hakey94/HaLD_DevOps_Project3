@@ -1,52 +1,34 @@
 {
 	"info": {
-		"_postman_id": "7fdc3526-ebaf-411d-ace8-e36a09821294",
-		"name": "TestSuite",
+		"_postman_id": "d8583e9b-2c42-464d-885e-e31fbc60bc7e",
+		"name": "Data_Validation_Test_Suite",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Get All Activity",
+			"name": "Create Employee",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"var jsonData = pm.response.json();\r",
-							"\r",
-							"pm.test(\"Content-Type is present\", function () { \r",
-							"    pm.response.to.have.header(\"Content-Type\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Content-Type is application/json\", function () { \r",
-							"    pm.expect(postman.getResponseHeader(\"Content-Type\")).to.include(\"application/json\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Body is present\", function () { \r",
-							"    pm.response.to.have.body();\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Body is a valid json\", function () { \r",
-							"    pm.response.to.be.json;\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"pm.test(\"Data Validation - POST - Successful response\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"success\");",
+							"});",
+							"",
+							"var json = pm.response.json();",
+							"pm.environment.set(\"id\", json.data.id);"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "",
+					"raw": "{\n    \"name\": \"{{name}}\",\n    \"salary\": \"{{salary}}\",\n    \"age\": \"{{age}}\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -54,65 +36,96 @@
 					}
 				},
 				"url": {
-					"raw": "https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities",
-					"protocol": "https",
+					"raw": "http://dummy.restapiexample.com/api/v1/create",
+					"protocol": "http",
 					"host": [
-						"azuredevops-app-appservice-hald1994",
-						"azurewebsites",
-						"net"
+						"dummy",
+						"restapiexample",
+						"com"
 					],
 					"path": [
 						"api",
-						"Activities"
+						"v1",
+						"create"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get Activity by ID",
+			"name": "Get Employee",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"var jsonData = pm.response.json();\r",
-							"\r",
-							"pm.test(\"Body is a valid json\", function () { \r",
-							"    pm.response.to.be.json;\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Completed: true\", function () {\r",
-							"    pm.expect(jsonData.Completed).to.eql(true);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response must be contains ID and valid data type\", function () {\r",
-							"    pm.expect(parseInt(jsonData.ID)).to.be.a('number');\r",
-							"    pm.expect(typeof jsonData.ID).to.eql(\"number\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response must be contains Title and valid data type\", function () {\r",
-							"    pm.expect(jsonData.Title).to.be.a('string');\r",
-							"    pm.expect(typeof jsonData.Title).to.eql(\"string\");\r",
-							"});"
+							"pm.test(\"Data Validation - GET - Successful response\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"success\");",
+							"});",
+							"",
+							"var json = pm.response.json();",
+							"",
+							"pm.test(\"Data Validation - GET - Employee is Tiger Nixon\", function() {",
+							"    pm.expect(json.data.employee_name).to.eql(\"Tiger Nixon\")",
+							"});",
+							"",
+							"pm.test(\"Data Validation - GET - Salary is 320800\", function() {",
+							"    pm.expect(json.data.employee_salary).to.eql(320800)",
+							"});",
+							"",
+							"pm.test(\"Data Validation - GET - Age is 61\", function() {",
+							"    pm.expect(json.data.employee_age).to.eql(61)",
+							"});",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"url": {
+					"raw": "http://dummy.restapiexample.com/api/v1/employee/1",
+					"protocol": "http",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Data Validation - PUT - Successful response\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"success\");",
+							"});",
+							"",
+							"var json = pm.response.json();"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "",
+					"raw": "{\r\n    \"name\": \"{{updatename}}\",\r\n    \"salary\": \"{{updatesalary}}\",\r\n    \"age\": \"{{updateage}}\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -120,46 +133,58 @@
 					}
 				},
 				"url": {
-					"raw": "https://azuredevops-app-appservice-hald1994.azurewebsites.net/api/Activities?ID={{ID}}",
-					"protocol": "https",
+					"raw": "http://dummy.restapiexample.com/api/v1/update/{{id}}",
+					"protocol": "http",
 					"host": [
-						"azuredevops-app-appservice-hald1994",
-						"azurewebsites",
-						"net"
+						"dummy",
+						"restapiexample",
+						"com"
 					],
 					"path": [
 						"api",
-						"Activities"
-					],
-					"query": [
-						{
-							"key": "ID",
-							"value": "{{ID}}"
-						}
+						"v1",
+						"update",
+						"{{id}}"
 					]
 				}
 			},
 			"response": []
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
 		},
 		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
+			"name": "Delete Employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Data Validation - DELETE - Successful response\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://dummy.restapiexample.com/api/v1/delete/{{id}}",
+					"protocol": "http",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"delete",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
