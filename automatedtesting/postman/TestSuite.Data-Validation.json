@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "ff8fec93-34a2-404d-8a30-7b9ee37b6b65",
+		"_postman_id": "7fdc3526-ebaf-411d-ace8-e36a09821294",
 		"name": "TestSuite",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "20297199"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
